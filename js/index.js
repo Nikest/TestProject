@@ -1,14 +1,11 @@
 var svg = d3.select('svg');
 
-var signVar;
-
 d3.json('js/candidates_task.json', function(err, data) {
     d3.select('h2').text(data.anomalousProperty.key + ': ' + data.anomalousProperty.value);
-    signVar = data.significantVariables;
-    paint();
+    paint(data.significantVariables);
 });
 
-function paint() {
+function paint(signVar) {
 
     var width = 500,
         height = 500,
